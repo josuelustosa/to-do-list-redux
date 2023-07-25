@@ -1,0 +1,50 @@
+:root {
+  --fundo-claro: #efefef;
+  --texto-primario: #1e1e1e;
+
+  --fs-1: 1rem;
+  --fs-2: 1.5rem;
+  --tamanho-texto: 1rem;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace, "Franklin Gothic Medium",
+    "Arial Narrow", Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: var(--tamanho-texto);
+
+  color: var(--texto-primario);
+  background-color: var(--fundo-claro);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.fs-1 {
+  font-size: var(--fs-1);
+  color: var(--texto-primario);
+  font-weight: bold;
+}
+
+.fs-2 {
+  font-size: var(--fs-1);
+  color: var(--texto-primario);
+  font-weight: bold;
+}
