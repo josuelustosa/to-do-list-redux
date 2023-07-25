@@ -20,8 +20,13 @@ const tarefaSlice = createSlice({
     adicionarTarefa(state, action) {
       state.tarefas.push(action.payload);
     },
+    removerTarefa(state, action) {
+      const removerId = action.payload;
+      
+      state.tarefas = state.tarefas.filter((tarefa) => tarefa.id !== removerId);
+    },
   },
 });
 
-export const { adicionarTarefa } = tarefaSlice.actions;
+export const { adicionarTarefa, removerTarefa } = tarefaSlice.actions;
 export default tarefaSlice.reducer;

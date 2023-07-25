@@ -1,8 +1,19 @@
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+
 import { RootState } from "../redux/store";
+import { AppDispatch } from "../redux/store";
+
+import { removerTarefa } from "../redux/features/tarefa.slice";
 
 function ListaTarefa() {
+  const dispatch = useDispatch<AppDispatch>();
+
   const tarefa = useSelector((state: RootState) => state.tarefa.tarefas);
+
+  const removerTarefaPorId = (id: number) => {
+    dispatch(removerTarefa(id));
+  };
 
   return (
     <ul className="list-group">
@@ -24,7 +35,11 @@ function ListaTarefa() {
               </label>
             </div>
             <div className="col-2 text-end">
-              <button type="button" className="btn btn-danger">
+              <button
+                type="button"
+                className="btn btn-danger"
+                onClick={() => removerTarefaPorId(t.id)}
+              >
                 <i className="bi bi-trash3-fill"></i>
               </button>
             </div>
