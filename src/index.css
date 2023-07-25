@@ -2,8 +2,6 @@
   --fundo-claro: #efefef;
   --texto-primario: #1e1e1e;
 
-  --fs-1: 1rem;
-  --fs-2: 1.5rem;
   --tamanho-texto: 1rem;
 }
 
@@ -22,12 +20,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 #root {
@@ -38,13 +30,11 @@ body {
 }
 
 .fs-1 {
-  font-size: var(--fs-1);
   color: var(--texto-primario);
   font-weight: bold;
 }
 
 .fs-2 {
-  font-size: var(--fs-1);
   color: var(--texto-primario);
   font-weight: bold;
 }
