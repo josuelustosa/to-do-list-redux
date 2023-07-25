@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
@@ -15,6 +16,12 @@ function ListaTarefa() {
     dispatch(removerTarefa(id));
   };
 
+  const [valorCheckBox, setValorCheckBox] = useState(false);
+
+  const alterarValorCheckBox = (e: any) => {
+    setValorCheckBox(e.target.checked);
+  };
+
   return (
     <ul className="list-group">
       {tarefa.map((t) => {
@@ -25,12 +32,20 @@ function ListaTarefa() {
           >
             <div className="col-10 text-start">
               <input
-                className="form-check-input me-2"
+                className="form-check-input me-3"
                 type="checkbox"
-                value=""
                 id="check-box-list"
+                onChange={alterarValorCheckBox}
               />
-              <label className="form-check-label" htmlFor="check-box-list">
+              <label
+                className="form-check-label"
+                htmlFor="check-box-list"
+                style={
+                  valorCheckBox
+                    ? { textDecoration: "line-through" }
+                    : { textDecoration: "none" }
+                }
+              >
                 {t.descricao}
               </label>
             </div>
