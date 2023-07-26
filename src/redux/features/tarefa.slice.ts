@@ -24,9 +24,7 @@ const tarefaSlice = createSlice({
     removerTarefa(state, action) {
       const removerId = action.payload;
 
-      state.tarefas = state.tarefas.filter(
-        (tarefa) => tarefa.id && tarefa.status !== removerId
-      );
+      state.tarefas = state.tarefas.filter((tarefa) => tarefa.id !== removerId);
     },
     mudarStatusTarefa(state, action) {
       const tarefaId = action.payload;
