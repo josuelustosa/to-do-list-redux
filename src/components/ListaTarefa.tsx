@@ -5,7 +5,10 @@ import { useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
 import { AppDispatch } from "../redux/store";
 
-import { removerTarefa } from "../redux/features/tarefa.slice";
+import {
+  mudarStatusTarefa,
+  removerTarefa,
+} from "../redux/features/tarefa.slice";
 
 function ListaTarefa() {
   const dispatch = useDispatch<AppDispatch>();
@@ -16,10 +19,9 @@ function ListaTarefa() {
     dispatch(removerTarefa(id));
   };
 
-  const [valorCheckBox, setValorCheckBox] = useState(false);
-
-  const alterarValorCheckBox = (e: any) => {
-    setValorCheckBox(e.target.checked);
+  const mudarStatusTarefaPorId = (id: number) => {
+    console.log(id);
+    dispatch(mudarStatusTarefa(id));
   };
 
   return (
@@ -35,13 +37,14 @@ function ListaTarefa() {
                 className="form-check-input me-3"
                 type="checkbox"
                 id="check-box-list"
-                onChange={alterarValorCheckBox}
+                onChange={() => mudarStatusTarefaPorId(t.id)}
+                checked={t.status}
               />
               <label
                 className="form-check-label"
                 htmlFor="check-box-list"
                 style={
-                  valorCheckBox
+                  t.status === true
                     ? { textDecoration: "line-through" }
                     : { textDecoration: "none" }
                 }

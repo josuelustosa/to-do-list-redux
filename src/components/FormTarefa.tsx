@@ -11,6 +11,7 @@ function FormTarefa() {
 
   const [inputTarefa, setInputTarefa] = useState({
     descricao: "",
+    status: false,
   });
 
   const handleInputTarefa = (e: any) => {
@@ -22,9 +23,9 @@ function FormTarefa() {
 
     const novaTarefa = { id: incrementarIndice, ...inputTarefa };
     dispatch(adicionarTarefa(novaTarefa));
-    
+
     setIncrementarIndice(incrementarIndice + 1); // incrementa + 1 no id
-    setInputTarefa({ descricao: "" }); // limpa o input após o submit
+    setInputTarefa({ descricao: "", status: false }); // limpa o input após o submit
 
     console.log("tarefa", novaTarefa);
   };

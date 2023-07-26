@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 interface Tarefa {
   id: number;
   descricao: string;
+  status: boolean;
 }
 
 interface TarefaState {
@@ -22,11 +23,27 @@ const tarefaSlice = createSlice({
     },
     removerTarefa(state, action) {
       const removerId = action.payload;
-      
-      state.tarefas = state.tarefas.filter((tarefa) => tarefa.id !== removerId);
+
+      state.tarefas = state.tarefas.filter(
+        (tarefa) => tarefa.id && tarefa.status !== removerId
+      );
+    },
+    mudarStatusTarefa(state, action) {
+      const tarefaId = action.payload;
+
+      state.tarefas = state.tarefas.map((tarefa) => {
+        if (tarefa.id === tarefaId) {
+          const statusAtual = { status: !tarefa.status };
+
+          return { ...tarefa, statusAtual };
+        } else {
+          return tarefa;
+        }
+      });
     },
   },
 });
 
-export const { adicionarTarefa, removerTarefa } = tarefaSlice.actions;
+export const { adicionarTarefa, removerTarefa, mudarStatusTarefa } =
+  tarefaSlice.actions;
 export default tarefaSlice.reducer;
