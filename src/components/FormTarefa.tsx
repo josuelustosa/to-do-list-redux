@@ -7,7 +7,7 @@ import { adicionarTarefa } from "../redux/features/tarefa.slice";
 function FormTarefa() {
   const dispatch = useDispatch<AppDispatch>();
 
-  const [incrementarIndice, setIncrementarIndice] = useState(0);
+  const [incrementarIndice, setIncrementarIndice] = useState(1);
 
   const [inputTarefa, setInputTarefa] = useState({
     descricao: "",
