@@ -33,9 +33,7 @@ const tarefaSlice = createSlice({
 
       state.tarefas = state.tarefas.map((tarefa) => {
         if (tarefa.id === tarefaId) {
-          const statusAtual = { status: !tarefa.status };
-
-          return { ...tarefa, statusAtual };
+          return { ...tarefa, status: !tarefa.status };
         } else {
           return tarefa;
         }

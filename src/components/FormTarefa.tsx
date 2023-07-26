@@ -26,8 +26,6 @@ function FormTarefa() {
 
     setIncrementarIndice(incrementarIndice + 1); // incrementa + 1 no id
     setInputTarefa({ descricao: "", status: false }); // limpa o input após o submit
-
-    console.log("tarefa", novaTarefa);
   };
 
   return (

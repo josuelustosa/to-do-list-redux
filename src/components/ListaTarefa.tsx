@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
@@ -20,7 +19,6 @@ function ListaTarefa() {
   };
 
   const mudarStatusTarefaPorId = (id: number) => {
-    console.log(id);
     dispatch(mudarStatusTarefa(id));
   };
 
@@ -36,15 +34,16 @@ function ListaTarefa() {
               <input
                 className="form-check-input me-3"
                 type="checkbox"
-                id="check-box-list"
+                id={`check-box-${t.id}`}
                 onChange={() => mudarStatusTarefaPorId(t.id)}
                 checked={t.status}
+                disabled={t.status}
               />
               <label
                 className="form-check-label"
-                htmlFor="check-box-list"
+                htmlFor={`check-box-${t.id}`}
                 style={
-                  t.status === true
+                  t.status
                     ? { textDecoration: "line-through" }
                     : { textDecoration: "none" }
                 }
