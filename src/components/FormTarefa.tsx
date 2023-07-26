@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../redux/store";
 
 import { adicionarTarefa } from "../redux/features/tarefa.slice";
 
 function FormTarefa() {
   const dispatch = useDispatch<AppDispatch>();
-
-  const [incrementarIndice, setIncrementarIndice] = useState(1);
+  const tarefas = useSelector((state: RootState) => state.tarefa.tarefas);
 
   const [inputTarefa, setInputTarefa] = useState({
     descricao: "",
@@ -21,10 +20,15 @@ function FormTarefa() {
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    const novaTarefa = { id: incrementarIndice, ...inputTarefa };
+    // encontra o maior ID atual nas tarefas
+    const maxId = tarefas.reduce(
+      (max, tarefa) => (tarefa.id > max ? tarefa.id : max),
+      0
+    );
+    const novoId = maxId + 1; // gera o novo ID incrementado
+    
+    const novaTarefa = { id: novoId, ...inputTarefa };
     dispatch(adicionarTarefa(novaTarefa));
-
-    setIncrementarIndice(incrementarIndice + 1); // incrementa + 1 no id
     setInputTarefa({ descricao: "", status: false }); // limpa o input após o submit
   };
 

@@ -9,6 +9,7 @@ import ListaTarefa from "./components/ListaTarefa";
 
 function App() {
   const qntTarefa = useSelector((state: RootState) => state.tarefa.tarefas);
+  console.log(qntTarefa)
 
   return (
     <div className="my-5 text-center">
