@@ -1,0 +1,56 @@
+:root {
+  --fundo-claro: #efefef;
+  --texto-primario: #1e1e1e;
+
+  --tamanho-texto: 1rem;
+}
+
+body {
+  font-family: "Courier New", Courier, monospace, "Franklin Gothic Medium",
+    "Arial Narrow", Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: var(--tamanho-texto);
+
+  color: var(--texto-primario);
+  background-color: var(--fundo-claro);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.fs-1 {
+  color: var(--texto-primario);
+  font-weight: bold;
+}
+
+.fs-2 {
+  color: var(--texto-primario);
+  font-weight: bold;
+}
+
+.form-check-label {
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+
+.form-check-input {
+  border: 2px solid var(--texto-primario);
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: #198754;
+  border-color: #198754;
+}
